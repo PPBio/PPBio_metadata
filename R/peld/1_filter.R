@@ -98,6 +98,10 @@ dim(Bind_all)
 #ncols <- max(stringr::str_count(Bind_all$content, ",")) + 1
 #colll <- cbind(Bind_all, stringr::str_split_fixed(Bind_all$content, ",", ncols))
 
-final_1<- separate(data = Bind_all, col = content, into = c("1", "2","3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"), sep = "\\>")
+final_1<- separate(data = Bind_all, col = content, into = c("1", "2","3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"), sep = "\\>")  
 
-final_2 <- janitor::clean_names(final_test_1)
+final_2 <- clean_strings(final_1$`19`)
+
+final_2 <- tibble::as.tibble(final_2)
+
+
