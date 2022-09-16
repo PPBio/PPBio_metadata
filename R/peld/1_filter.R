@@ -4,6 +4,8 @@ library(tidyverse)
 library(janitor)
 library(xml2)
 library(XML)
+library(stringr)
+library(taxlis)
 
 ## 1
 peld_1 <- read_dir("data-raw/peld_raw/Documents/")
@@ -100,8 +102,10 @@ dim(Bind_all)
 
 final_1<- separate(data = Bind_all, col = content, into = c("1", "2","3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"), sep = "\\>")  
 
-final_2 <- clean_strings(final_1$`19`)
+final_2 <- taxlist::clean_strings(final_1$`19`)
 
 final_2 <- tibble::as.tibble(final_2)
 
+
+write_csv(final_2, "data/peld/test_1_peld.csv") # Need more cleanning 
 
