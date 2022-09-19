@@ -5,7 +5,7 @@ library(janitor)
 library(xml2)
 library(XML)
 library(stringr)
-library(taxlis)
+library(taxlist)
 
 ## 1
 peld_1 <- read_dir("data-raw/peld_raw/Documents/")
@@ -108,4 +108,13 @@ final_2 <- tibble::as.tibble(final_2)
 
 
 write_csv(final_2, "data/peld/test_1_peld.csv") # Need more cleanning 
+
+########### Parte 2
+## naman
+
+naman <- peld_datmerged_1 |> 
+  filter(str_detect(document,"^naman")) |>  
+  arrange(desc(document)) |> 
+  arrange(desc(document)) |> 
+  filter((document %in% c("naman_3_22", "naman_9_13", "naman_10_15", "naman_11_27", "naman_12_11", "naman_13_12", "naman_14_10", "naman_15_11", "naman_16_10", "naman_17_11", "naman_18_9", "naman_20_5", "naman_21_5", "naman_22_5", "naman_23_5", "naman_24_5", "naman_25_6", "naman_26_5", "naman_27_5", "naman_29_8", "naman_32_3", "naman_33_2", "naman_34_6", "naman_35_6", "naman_40_3", "naman_42_5", "naman_43_5", "naman_44_5", "naman_45_6", "naman_46_5", "naman_47_6", "naman_48_6", "naman_49_5", "naman_50_5", "naman_51_5", "naman_52_4", "naman_69_2", "naman_73_9", "naman_74_5", "naman_79_18", "naman_80_6", "naman_83_7", "naman_88_8", "naman_89_4", "naman_99_4", "naman_101_3", "naman_102_9", "naman_106_3", "naman_110_2", "naman_112_9", "naman_114_2", "naman_115_2", "naman_118_5", "naman_120_2", "naman_123_1", "naman_124_1", "naman_129_7", "naman_131_2", "naman_132_5", "naman_134_3", "naman_135_5", "naman_137_3", "naman_138_3", "naman_139_2", "naman_143_2", "naman_144_2", "naman_145_4", "naman_148_5", "naman_149_2", "naman_150_2", "naman_153_2", "naman_158_6", "naman_159_4", "naman_169_1", "naman_173_3", "naman_174_3", "naman_176_4", "naman_177_3", "naman_178_4", "naman_180_4", "naman_183_3", "naman_185_3", "naman_190_4", "naman_192_4", "naman_194_3", "naman_195_3", "naman_196_3", "naman_199_3", "naman_200_2", "naman_204_3", "naman_205_4", "naman_211_2", "naman_212_2", "naman_222_7", "naman_240_4", "naman_243_7", "naman_250_3", "naman_254_6", "naman_263_2", "naman_269_9", "naman_278_3", "naman_306_7", "naman_317_4", "naman_318_3", "naman_324_3", "naman_327_5", "naman_328_4", "naman_334_2", "naman_337_4", "naman_346_4", "naman_363_2", "naman_380_4", "naman_382_4", "naman_383_5", "naman_384_3", "naman_385_3", "naman_386_4", "naman_387_4", "naman_388_3", "naman_389_3", "naman_390_3", "naman_400_2", "naman_404_2", "naman_404_2", "naman_406_6", "naman_411_2", "naman_413_2", "naman_415_2", "naman_417_2", "naman_419_2", "naman_421_2", "naman_423_2", "naman_425_2", "naman_427_2", "naman_429_2", "naman_453_3", "naman_456_3", "naman_458_2", "naman_461_2", "naman_464_2", "naman_467_2", "naman_474_3", "naman_475_3", "naman_477_2", "naman_478_6", "naman_483_4", "naman_486_2", "naman_488_3", "naman_491_4", "naman_494_3", "naman_496_2", "naman_499_3", "naman_504_2", "naman_510_2", "naman_511_2", "naman_522_6", "naman_540_2", "naman_541_4", "naman_544_4", "naman_594_1", "naman_597_2", "naman_602_1", "naman_607_3", "naman_611_2", "naman_616_3", "naman_619_1", "naman_620_3", "naman_641_4", "naman_651_1", "naman_654_2")))
 
