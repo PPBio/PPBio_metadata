@@ -1,54 +1,81 @@
+########################################################################
+## Este scritp lista os metadados (arquivos XML) mais atuais do diretório PPBio e tablea a informação num datframe | This code list the updated metadata files in PPBio directory, then it is compiled in dataframe. 
+## Versão | Version  R 4.2.1
+## Author : Tainá Rocha
+########################################################################
+
+## Pacotes | Packages
 
 library(purrr)
 library(xml2)
 library(XML)
 library(dplyr)
 
-### Teste selecionano os arquivos
+# Listando metadados (arquivos xmls) | List metadata files
+
 dados = list.files("data-raw/ppbio_raw/Metacat/documents from metacat 02062022")
 
+# Pegando os nomes do arquivos e compilando numa tibble/datframe | Getting the filenames and compiling in a tibble/dataframe
+
 metadata_all <- tibble::tibble(metadata = dados)
+
+# Arquivos sequenciais como "dias.35.2 dias.35.3 dias.35.4" são o mesmo conjunto de dados, o número mais alto representa o conjunto de dado mais atualizado | Sequential files such as  "days.35.2 days.35.3 days.35.4" are the same dataset, the higher number represents the most up-to-date datase
+
+# A pipeline cria ums tibble/datframe com o nome dos metadados mais atualizados | The following pipeline create a tibble/dataframe of the most updated metadata NAMES.
 
 
 metadata_2_all= metadata_all |>
   tidyr::separate(metadata, c("name", "id", "version"), remove = FALSE) |>
-  dplyr::mutate(id = as.numeric(id), version = as.numeric(version)) |>
+  #dplyr::mutate(id = as.numeric(id), version = as.numeric(version)) |>
   dplyr::group_by(name, id) |>
   dplyr::slice_max(version, n = 1) |>
   dplyr::ungroup()
 
+# Selecionando a coluna com nomes mais atualizados | Select  the column names (most updated) 
+
 nomes = metadata_2_all$metadata
+
+# Usando o objeto "nomes" para selecionar apenas os metadados mais atualizados da pasta | Using the "nomes" object to select only the most up-to-date metadata from the folder.
 
 dado2 = sapply(nomes, function(x){list.files("data-raw/ppbio_raw/Metacat/documents from metacat 02062022",pattern = x)})
 
-my_function <- function(x){
+# Criando uma para copiar os metadados selecionandos para outra pasta
+
+copynfiles <- function(x){
   file.rename( from = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data-raw/ppbio_raw/Metacat/documents from metacat 02062022", x) ,
-               to = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data/ppbio", x) )
+               to = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data/ppbio/xmls_updated", x) )
 }
 
-# apply the function to all files
-lapply(nomes, my_function)
+# Executando a função . Apply the function 
+
+lapply(nomes, copynfiles)
 
 
-### teste xml
-my_files <- list.files("data/ppbio", full.names = TRUE)
+## Trabalhando no novo diretório com os arquivos de interesse | Working in the new directory with the files of interest.
 
-read_my_xml <- function(x, path = "//dataset") {
-  tmp <- read_xml(x) # read the xml file
-  tmp <- tmp %>% 
-    xml_find_first(path) %>% # select the //dataset node
-    xml_children # select all children of that node
+# Listando os arquivos | Listing files 
+
+xml_ppbio_files <- list.files("data/ppbio/xmls_updated", full.names = TRUE)
+
+# Criando uma função para pegar o nó "dataset"
+
+read_my_xml = function(x, path = "//dataset") {
+  tmp = read_xml(x) # lendo o xml | read the xml file
+  tmp = tmp %>% 
+    xml_find_first(path)  %>%   # select the //dataset node
+    xml_children # Selecionando todos os filhos deste nó | select all children of that node
   
-  # this extracts the text of all children 
+  # Extrair todo o texto dos "nós filhos" | this extracts the text of all children 
   # aka the text between the > TEXT </ Tags
-  out <- tmp %>% xml_text 
-  # Takes the names of the tags <NAME> ... </NAME>
-  names(out) <- tmp %>% xml_name
-  # Turns out to tibble - see https://stackoverflow.com/q/40036207/3301344
+  out = tmp  %>%   xml_text 
+  # Pegando o nome das TAGS | Takes the names of the tags <NAME> ... </NAME>
+  names(out) = tmp  %>%   xml_name
+  # Transformando em tibble/dataframe | Turns out to tibble - see https://stackoverflow.com/q/40036207/3301344
   bind_rows(out)
 }
 
-dat <- map_df(my_files, read_my_xml) # map_df is similar to a loop + binding it to one tibble
+ppbio_final = map_df(xml_ppbio_files, read_my_xml) # map_df is similar to a loop + binding it to one tibble
 
-
+readr::write_csv(ppbio_final, "data/ppbio/1_ppbio_datasets_node.csv")
+#######
 
