@@ -1,5 +1,5 @@
 ########################################################################
-## Este scritp lista os metadados (arquivos XML) mais atuais do diretório PPBio e tabela o conteúdo num datframe | This code list the updated metadata files in PPBio directory, then it is compiled in dataframe. 
+## Este scritp lista os metadados (arquivos XML) mais atuais do diretório Peld e tabela o conteúdo num datframe | This code list the updated metadata files in PPBio directory, then it is compiled in dataframe. 
 ## Versão | Version  R 4.2.1
 ## Author : Tainá Rocha
 ########################################################################
@@ -13,7 +13,7 @@ library(dplyr)
 
 # Listando metadados (arquivos xmls) | List metadata files
 
-dados = list.files("data-raw/ppbio_raw/Metacat/documents from metacat 02062022")
+dados = list.files("data-raw/peld_raw/Documents")
 
 # Pegando os nomes do arquivos e compilando numa tibble/datframe | Getting the filenames and compiling in a tibble/dataframe
 
@@ -37,13 +37,13 @@ nomes = metadata_2_all$metadata
 
 # Usando o objeto "nomes" para selecionar apenas os metadados mais atualizados da pasta | Using the "nomes" object to select only the most up-to-date metadata from the folder.
 
-dado2 = sapply(nomes, function(x){list.files("data-raw/ppbio_raw/Metacat/documents from metacat 02062022",pattern = x)})
+dado2 = sapply(nomes, function(x){list.files("data-raw/peld_raw/Documents",pattern = x)})
 
 # Criando uma para copiar os metadados selecionandos para outra pasta
 
 copynfiles <- function(x){
-  file.rename( from = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data-raw/ppbio_raw/Metacat/documents from metacat 02062022", x) ,
-               to = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data/ppbio/xmls_updated", x) )
+  file.rename( from = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data-raw/peld_raw/Documents", x) ,
+               to = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data/peld/xmls_updated", x) )
 }
 
 # Executando a função . Apply the function 
@@ -55,7 +55,7 @@ lapply(nomes, copynfiles)
 
 # Listando os arquivos | Listing files 
 
-xml_ppbio_files <- list.files("data/ppbio/xmls_updated", full.names = TRUE)
+xml_peld_files <- list.files("data/peld/xmls_updated", full.names = TRUE)
 
 # Criando uma função para pegar o nó "dataset"
 
@@ -74,8 +74,8 @@ read_my_xml = function(x, path = "//dataset") {
   bind_rows(out)
 }
 
-ppbio_final = map_df(xml_ppbio_files, read_my_xml) # map_df is similar to a loop + binding it to one tibble
+peld_final = map_df(xml_peld_files, read_my_xml) # map_df is similar to a loop + binding it to one tibble
 
-readr::write_csv(ppbio_final, "data/ppbio/1_ppbio_datasets_node.csv")
+readr::write_csv(peld_final, "data/peld/1_peld_datasets_node.csv")
 #######
 
