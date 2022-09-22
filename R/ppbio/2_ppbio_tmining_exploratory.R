@@ -1,5 +1,5 @@
 #############################################################################################
-## Este scritp  | This code 
+##Este scritp faz uma mineração de texto para análise exploratório | This code do a text mining for exploratory analysis
 ## Versão | Version  R 4.2.1
 ## Author : Tainá Rocha
 #############################################################################################

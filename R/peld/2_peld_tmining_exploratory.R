@@ -1,5 +1,5 @@
 #############################################################################################
-## Este scritp  | This code 
+## Este scritp faz uma mineração de texto para análise exploratório | This code do a text mining for exploratory analysis
 ## Versão | Version  R 4.2.1
 ## Author : Tainá Rocha
 #############################################################################################
@@ -14,7 +14,7 @@ library(wordcloud)
 
 ## Lendo a planilha 
 
-ppbio = readr::read_csv("data/ppbio/1_ppbio_datasets_node.csv")
+peld = readr::read_csv("data/peld/1_peld_datasets_node.csv")
 
 
 ## Primeiro é preciso executar o script stop_words
@@ -25,7 +25,7 @@ stop_words
 
 ## Pipelines para mineração de texto na coluna título | Pipeline to text mining in title column
 
-tm_1 = ppbio |>
+tm_1 = peld |>
   select(title) |> 
   unnest_tokens(title2, title) |> #name of colunm, in this case text column
   # filter(!grepl("[[:digit:]]", text)) |> 
@@ -39,7 +39,7 @@ tm_1 = ppbio |>
   labs(y = NULL)
 
 
-tm_2 = ppbio |>
+tm_2 = peld |>
   select(title) |> 
   unnest_tokens(title2, title) |> #name of colunm, in this case text column
   # filter(!grepl("[[:digit:]]", text)) |> 
@@ -53,7 +53,7 @@ tm_2 = ppbio |>
   labs(y = NULL)
 
 
-tm_3 = ppbio |>
+tm_3 = peld |>
   select(title) |> 
   unnest_tokens(title2, title) |> #name of colunm, in this case text column
   # filter(!grepl("[[:digit:]]", text)) |> 
@@ -66,7 +66,7 @@ tm_3 = ppbio |>
   geom_col() +
   labs(y = NULL)
 
-graph_names  = ppbio |>
+graph_names  = peld |>
   select(title) |> 
   unnest_tokens(title2, title) |> #name of colunm, in this case text column
   # filter(!grepl("[[:digit:]]", text)) |> 
