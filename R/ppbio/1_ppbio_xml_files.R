@@ -39,7 +39,7 @@ nomes = metadata_2_all$metadata
 
 dado2 = sapply(nomes, function(x){list.files("data-raw/ppbio_raw/Metacat/documents from metacat 02062022",pattern = x)})
 
-# Criando uma para copiar os metadados selecionandos para outra pasta
+# Criando uma função para copiar os metadados selecionandos para outra pasta
 
 copynfiles <- function(x){
   file.rename( from = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data-raw/ppbio_raw/Metacat/documents from metacat 02062022", x) ,
