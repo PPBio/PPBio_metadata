@@ -1,5 +1,5 @@
 data-raw/
-data/ppbio/xmls_updated/
-data/peld/xmls_updated/
+data/Metadata_ppbio_peld/peld/xmls_updated
+data/Metadata_ppbio_peld/ppbio/xmls_updated
 .xml
 .Rproj.user

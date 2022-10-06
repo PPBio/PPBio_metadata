@@ -13,7 +13,7 @@ library(dplyr)
 
 # Listando metadados (arquivos xmls) | List metadata files
 
-dados = list.files("data-raw/ppbio_raw/Metacat/documents from metacat 02062022")
+dados = list.files("data-raw/Metadata_PPBIO_PELD/ppbio_raw/Metacat/documents from metacat 02062022")
 
 # Pegando os nomes do arquivos e compilando numa tibble/datframe | Getting the filenames and compiling in a tibble/dataframe
 
@@ -37,13 +37,15 @@ nomes = metadata_2_all$metadata
 
 # Usando o objeto "nomes" para selecionar apenas os metadados mais atualizados da pasta | Using the "nomes" object to select only the most up-to-date metadata from the folder.
 
-dado2 = sapply(nomes, function(x){list.files("data-raw/ppbio_raw/Metacat/documents from metacat 02062022",pattern = x)})
+dado2 = sapply(nomes, function(x){list.files("data-raw/Metadata_PPBIO_PELD/ppbio_raw/Metacat/documents from metacat 02062022",pattern = x)})
 
 # Criando uma função para copiar os metadados selecionandos para outra pasta
 
+## POR FAVOR, PRESTE ATENÇÃO AO CAMINHO ABSOLUTO. PRECISA MUDAR PARA O CAMINHO DA SUA MÁQUINA LOCAL | PLEASE PAY ATTENTION TO THE ABSOLUTE PATH. NEED TO CHANGE FOR YOUR LOCAL MACHINE PATH 
+
 copynfiles <- function(x){
-  file.rename( from = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data-raw/ppbio_raw/Metacat/documents from metacat 02062022", x) ,
-               to = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data/ppbio/xmls_updated", x) )
+  file.rename( from = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data-raw/Metadata_PPBIO_PELD/ppbio_raw/Metacat/documents from metacat 02062022", x) ,
+               to = file.path("/home/tai-rocha/Documents/Github/Projetos/PPBio/data/Metadata_ppbio_peld/ppbio/xmls_updated", x) )
 }
 
 # Executando a função . Apply the function 
@@ -55,7 +57,7 @@ lapply(nomes, copynfiles)
 
 # Listando os arquivos | Listing files 
 
-xml_ppbio_files <- list.files("data/ppbio/xmls_updated", full.names = TRUE)
+xml_ppbio_files <- list.files("data/Metadata_ppbio_peld/ppbio/xmls_updated", full.names = TRUE)
 
 # Criando uma função para pegar o nó "dataset"
 
@@ -76,6 +78,4 @@ read_my_xml = function(x, path = "//dataset") {
 
 ppbio_final = map_df(xml_ppbio_files, read_my_xml) # map_df is similar to a loop + binding it to one tibble
 
-readr::write_csv(ppbio_final, "data/ppbio/1_ppbio_datasets_node.csv")
-#######
-
+readr::write_csv(ppbio_final, "data/Metadata_ppbio_peld/ppbio/1_ppbio_datasets_node.csv")
