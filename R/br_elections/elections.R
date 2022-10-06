@@ -1,21 +1,30 @@
+################################################################
+## Exploratory analysis of first round Brazilian elections- 2022
+## Code author: Tainá Rocha 
+## R version 4.2.1
+################################################################
+
 library(raster)
 library(rgdal)
 library(ggplot2)
 
-## import lake shapefile
+## import shapefile
 
 shap = sf::st_read("data-raw/Shapes/br_municipios_20200807/br_muni_election_2022_presid.shp")
 
 
 ####### Tmap
-library(tmap)
-#data("World")
 
 tm_shape(shap) +
-  tm_polygons("Candidato")
+  tm_polygons("Candidato",
+              palette= c(
+                "Bolsonaro" = "#000000",
+                "Lula" = "#ff0000"))
 
 
-######## GGplot
+######## Not run
+
+## GGplot
 
 shape = readOGR("data-raw/Shapes/br_municipios_20200807/br_muni_election_2022_presid.shp")
 
