@@ -14,12 +14,12 @@ library(wordcloud)
 
 ## Lendo a planilha 
 
-ppbio = readr::read_csv("data/Metadata_ppbio_peld/ppbio/1_ppbio_datasets_node.csv")
+ppbio = readr::read_csv("data/ppbio/1_ppbio_datasets_node.csv")
 
 
 ## Primeiro é preciso executar o script stop_words
 
-source("R/Metadata/stop_words_pt.R")
+source("R/stop_words_pt.R")
 data("stop_words")
 stop_words
 
