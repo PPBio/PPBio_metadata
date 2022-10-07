@@ -1,5 +1,5 @@
 #############################################################################################
-##Este scritp faz uma mineração de texto para análise exploratório | This code do a text mining for exploratory analysis
+##Este scritp faz uma mineração de texto para análise exploratória | This code do a text mining for exploratory analysis
 ## Versão | Version  R 4.2.1
 ## Author : Tainá Rocha
 #############################################################################################
@@ -9,8 +9,10 @@
 library(dplyr)
 library(ggplot2)
 library(stringi)
+library(stringr)
 library(tidytext)
 library(wordcloud)
+library(tm)
 
 ## Lendo a planilha 
 
@@ -66,6 +68,19 @@ tm_3 = ppbio |>
   geom_col() +
   labs(y = NULL)
 
+tm4 = ppbio |>
+  select(abstract) |> 
+  unnest_tokens(abstract2, abstract) |> #name of colunm, in this case text column
+  # filter(!grepl("[[:digit:]]", text)) |> 
+  anti_join(stop_words, by = c("abstract2" = "word")) |> 
+  anti_join(stopwords_pt_final, by = c("abstract2" = "word")) |> 
+  count(abstract2, sort = TRUE) |> 
+  filter(n > 10, n < 12) |> 
+  mutate(abstract2 = reorder(abstract2, n)) |> 
+  ggplot(aes(n, abstract2)) +
+  geom_col() +
+  labs(y = NULL)
+
 graph_names  = ppbio |>
   select(title) |> 
   unnest_tokens(title2, title) |> #name of colunm, in this case text column
@@ -78,4 +93,21 @@ graph_names  = ppbio |>
                  colors = brewer.pal(12, "Set1"),
                  max.words = 800)) 
 
-##
+##  Filter
+
+## Test 1- Not good for the purpose
+
+library(dplyr)
+library(stringr)
+
+keywords = c("Manaus", "USA", "Mato Grosso")
+
+ppbio_2 = as_tibble(ppbio) %>%
+  mutate(abstract = tolower(abstract),
+         match = str_c(keywords, collapse = '|'),
+         key_word = str_extract_all(abstract, match)) %>%
+  select(-match)
+
+rm(keywords)
+
+
