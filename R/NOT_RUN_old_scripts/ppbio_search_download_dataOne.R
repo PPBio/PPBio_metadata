@@ -10,7 +10,7 @@ cn = CNode("PROD")
 d1c = getMNode(cn, 'urn:node:PPBIO')
 
 # Ask for the id, title and abstract
-queryParams = list(q="ppbio", fl="id,title,abstract", rows='2000') 
+queryParams = list(q="ppbio", fl="id,title,abstract,author,beginDate, endDate, attribute, attributeName", rows='2000') 
 result = query(d1c, solrQuery=queryParams, as="data.frame", parse=FALSE)
 
 write_csv(result, "data/ppbio/ppbio_dataone.csv") # Need more cleanning 
