@@ -34,7 +34,7 @@ tm_1 = ppbio |>
   anti_join(stop_words, by = c("title2" = "word")) |> 
   anti_join(stopwords_pt_final, by = c("title2" = "word")) |> 
   count(title2, sort = TRUE) |> 
-  filter(n > 10, n < 25) |> 
+  filter(n > 20, n < 50) |> 
   mutate(title2 = reorder(title2, n)) |> 
   ggplot(aes(n, title2)) +
   geom_col() +
@@ -88,10 +88,10 @@ graph_names  = ppbio |>
   anti_join(stop_words, by = c("title2" = "word")) |> 
   anti_join(stopwords_pt_final, by = c("title2" = "word")) |> 
   count(title2, sort = TRUE) |> 
-  filter(n < 20) |> 
+  filter(n < 50) |> 
   with(wordcloud(title2, n, 
                  colors = brewer.pal(12, "Set1"),
-                 max.words = 800)) 
+                 max.words = 100)) 
 
 ##  Filter
 

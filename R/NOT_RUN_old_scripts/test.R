@@ -25,3 +25,7 @@ az <- create_graph_login("mytenant", app="{d44a05d5-c6a5-4bbb-82d2-443123722380}
 
 
 t1 <-  list_sharepoint_sites()
+
+#############
+
+
