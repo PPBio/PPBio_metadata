@@ -5,20 +5,98 @@
 ###############################################################################################
 
 ## Packages 
-
 library(dplyr)
 library(tidyr)
 library(readr)
+library(tibble)
+
+######################################### PPBio ######################################### 
 
 ## Read raw data
 
-splink = readr::read_delim("data-raw/speciesLink/PPBIo/20221012162526-0011185.txt")
+splinkppbio = readr::read_delim("data-raw/speciesLink/PPBIo/20221012162526-0011185.txt")
 
 
 ## Pipeline 1 
 
-splink |> 
-  group_by(collectioncode) |> 
-  summarise() |> 
-  ungroup()
+PPBIo = rep("PPBio", time = 14299)
+splppbio = rep("speciesLink", time = 14299)
+
+slppbio = splinkppbio |> 
+  select(notes, collector, institutioncode, collectioncode, catalognumber, yearcollected, monthcollected, daycollected, latitude, longitude, locality, stateprovince, country, kingdom, phylum, taxonclass, ordem, family, genus, species, scientificname) |> 
+  rename(Title = notes,
+         Collector_Author = collector,
+         Institution = institutioncode,
+         Collection_Code = collectioncode,
+         Catalog_Number = catalognumber,
+         Year = yearcollected,
+         Month = monthcollected,
+         Day = daycollected,
+         Latitude = latitude,
+         Longitude = longitude,
+         Locality = locality,
+         State = stateprovince,
+         Country = country,
+         Kingdom = kingdom,
+         Phylum = phylum,
+         Class = taxonclass,
+         Order = ordem,
+         Family = family,
+         Genus = genus,
+         Species = species,
+         Scientific_Name = scientificname) |> 
+  add_column(PPBio_PELD = PPBIo, .after =  "Collector_Author") |> 
+  add_column(Database_Repository = splppbio, .after = "PPBio_PELD") |> 
+  add_column(Funding_Agency = NA, .after = "Catalog_Number") |> 
+  add_column(Biome_Domain = NA, .after = "Country")
+  
+######################################### PELD ######################################### 
+
+
+## Read raw data
+
+splinkpeld = readr::read_delim("data-raw/speciesLink/PELD/20221012163802-0000744.txt")
+
+
+## Pipeline 1 
+
+PELD = rep("PELD", time = 1086 )
+splpeld = rep("speciesLink", time = 1086 )
+
+slpeld = splinkpeld |> 
+  select(notes, collector, institutioncode, collectioncode, catalognumber, yearcollected, monthcollected, daycollected, latitude, longitude, locality, stateprovince, country, kingdom, phylum, taxonclass, ordem, family, genus, species, scientificname) |> 
+  rename(Title = notes,
+         Collector_Author = collector,
+         Institution = institutioncode,
+         Collection_Code = collectioncode,
+         Catalog_Number = catalognumber,
+         Year = yearcollected,
+         Month = monthcollected,
+         Day = daycollected,
+         Latitude = latitude,
+         Longitude = longitude,
+         Locality = locality,
+         State = stateprovince,
+         Country = country,
+         Kingdom = kingdom,
+         Phylum = phylum,
+         Class = taxonclass,
+         Order = ordem,
+         Family = family,
+         Genus = genus,
+         Species = species,
+         Scientific_Name = scientificname) |> 
+  add_column(PPBio_PELD = PELD, .after =  "Collector_Author") |> 
+  add_column(Database_Repository = splpeld, .after = "PPBio_PELD") |> 
+  add_column(Funding_Agency = NA, .after = "Catalog_Number") |> 
+  add_column(Biome_Domain = NA, .after = "Country")
+
+
+################################################# Bind
+
+version_1 = readr::read_csv("data/Version_1.csv")
+
+version_1_merged_speciesLink = do.call("rbind", list(version_1, slppbio, slpeld))
+
+
   
