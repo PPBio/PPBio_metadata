@@ -41,7 +41,7 @@ Accessed aqnd dowloaded 17 October 2022
 
 ## Analysis
 
-![ alt text for screen readers](https://github.com/PPBio/PPBio_metadata/blob/master/doc/img/test_1.png "Text to show on mouseover")
+<img align="right" width="200" height="200" src="https://github.com/PPBio/PPBio_metadata/blob/master/doc/img/test_1.png"> 
 
 Fig.2 
 
