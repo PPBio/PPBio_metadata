@@ -22,7 +22,7 @@ PELD files- The [documents from metacat 02062022](https://onedrive.live.com/?aut
 
 #### SIBBr 
 
-Acessed 11 Octuber 2022
+Accessed 11 October 2022
 
 [PPBio](https://collectory.sibbr.gov.br/collectory/public/show/dp32?lang=pt_BR), [PELD](https://collectory.sibbr.gov.br/collectory/public/show/dp30?lang=pt_BR), [PELD - HCES](https://collectory.sibbr.gov.br/collectory/public/show/dr487?lang=pt_BR), [PELD - AGCV](https://collectory.sibbr.gov.br/collectory/public/show/dr504?lang=pt_BR), [PELD - PNCA](https://collectory.sibbr.gov.br/collectory/public/show/dr479?lang=pt_BR), [PELD - ELPA](https://collectory.sibbr.gov.br/collectory/public/show/dr505?lang=pt_BR), [PELD - ELPA](https://collectory.sibbr.gov.br/collectory/public/show/dr506?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr611?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr609?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr610?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr607?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr608?lang=pt_BR)
 
@@ -31,6 +31,11 @@ Acessed 11 Octuber 2022
 PPBio and PELD data acessed and dowloaded at 12 Octuber 2022 [search based on "PPBio"](https://specieslink.net/search/)
 
 #### GBIF
+
+Accessed aqnd dowloaded 17 October 2022
+
+3 datasets for PPBIO 
+3 datasets for PELD
 
 ## Data Cleaning and Filters
 
