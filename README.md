@@ -2,7 +2,7 @@
 
 ![ alt text for screen readers](https://github.com/PPBio/PPBio_metadata/blob/master/doc/img/PPBio_PELD%20data.png "Text to show on mouseover")
 
-Fig.1. [Workflow draft](https://www.figma.com/file/lc17JYGhJAsKvktgFdQ0gx/PPBio_PELD-data?node-id=0%3A1)
+Fig.1. [Workflow draft](https://www.figma.com/file/lc17JYGhJAsKvktgFdQ0gx/PPBio_PELD-data?node-id=0%3A1). Feel free to make suggestions and changes.
 
 ## Data Search
 
