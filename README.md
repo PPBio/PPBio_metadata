@@ -41,6 +41,11 @@ Accessed aqnd dowloaded 17 October 2022
 
 ## Analysis
 
+<img align="left" width="400" height="400" src="https://github.com/PPBio/PPBio_metadata/blob/master/doc/img/test_1.png"> 
+
+Fig.2 
+
+
 
 
 
