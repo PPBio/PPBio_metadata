@@ -108,6 +108,9 @@ Fig3. Word frequency using random threshold (n > 50).
 
 
 
+## Contributions 
+
+Your contributions are welcome in any part of this project. Currently, the most urgent necessity is to get PPBIO and PEDL data from databases available in Step 1 and discover other sources of PPPBIO and PELD data.
 
 
 
