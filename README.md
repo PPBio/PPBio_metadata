@@ -39,6 +39,8 @@ Accessed aqnd dowloaded 17 October 2022
 
 ## Analysis
 
+Some test based on text mining of "Titles" 
+
 <img align="left" width="500" height="400" src="https://github.com/PPBio/PPBio_metadata/blob/master/doc/img/test_1.png"> 
 <br>
 <br>
@@ -59,7 +61,7 @@ Accessed aqnd dowloaded 17 October 2022
 <br>
 
 
-Fig.2 Text Minig of titles. Word frequency using random threshold (n > 51 <100). 
+Fig.2 Word frequency using random threshold (n > 51 <100). 
 
 
 <img align="left" width="500" height="400" src="https://github.com/PPBio/PPBio_metadata/blob/master/doc/img/test_2.png"> 
@@ -81,7 +83,7 @@ Fig.2 Text Minig of titles. Word frequency using random threshold (n > 51 <100).
 <br>
 <br>
 
-Fig3. Text Minig of titles. Word frequency using random threshold (n > 50). 
+Fig3. Word frequency using random threshold (n > 50). 
 
 
 
