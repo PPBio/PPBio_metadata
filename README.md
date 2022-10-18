@@ -6,7 +6,7 @@ Fig.1. [Workflow draft](https://www.figma.com/file/lc17JYGhJAsKvktgFdQ0gx/PPBio_
 
 ## Data Search
 
-#### DataOne
+- [x] DataOne
 
 The metadata files are stored in the below links and downloaded to a directory named "data-raw" for a local machine. This directory is not hosted on Github because has many XML files making it too large and not suitable to host here. However, for the reproducibility purposes of analysis and scripts, you can use the below links to download the xmls metadata files and create the "data-raw" directory to put those files. But pay attention to other subdirectories in data-raw. If you want to run the code without any changes, create the same path and directories of the scripts. 
 
@@ -17,25 +17,46 @@ PELD files- The [documents from metacat 02062022](https://onedrive.live.com/?aut
 
 [Peld Metacat](https://onedrive.live.com/?authkey=%21ALdWS8Bdj1fu3nc&id=C8DF5FA20BD04A99%2157919&cid=C8DF5FA20BD04A99) stores metadata and data of PELD 
 
+- [ ] [ebird](https://ebird.org/home)
 
-#### SIBBr 
+- [ ] [ForestPlot.NET](https://forestplots.net/)
 
-Accessed 11 October 2022
-
-[PPBio](https://collectory.sibbr.gov.br/collectory/public/show/dp32?lang=pt_BR), [PELD](https://collectory.sibbr.gov.br/collectory/public/show/dp30?lang=pt_BR), [PELD - HCES](https://collectory.sibbr.gov.br/collectory/public/show/dr487?lang=pt_BR), [PELD - AGCV](https://collectory.sibbr.gov.br/collectory/public/show/dr504?lang=pt_BR), [PELD - PNCA](https://collectory.sibbr.gov.br/collectory/public/show/dr479?lang=pt_BR), [PELD - ELPA](https://collectory.sibbr.gov.br/collectory/public/show/dr505?lang=pt_BR), [PELD - ELPA](https://collectory.sibbr.gov.br/collectory/public/show/dr506?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr611?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr609?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr610?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr607?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr608?lang=pt_BR)
-
-
-#### speciesLink 
-PPBio and PELD data acessed and dowloaded at 12 Octuber 2022 [search based on "PPBio" and PELD](https://specieslink.net/search/)
-
-#### GBIF
+- [x] GBIF
 
 Accessed aqnd dowloaded 17 October 2022
 
 3 datasets for PPBIO 
 3 datasets for PELD
 
+- [ ] [iNatarulaits](https://www.inaturalist.org/)
+
+Accessed aqnd dowloaded 17 October 2022
+
+3 datasets for PPBIO 
+3 datasets for PELD
+
+- [ ] [JABOT](http://rb.jbrj.gov.br/v2/consulta.php)
+
+- [ ] [REFLORA](https://reflora.jbrj.gov.br/reflora/herbarioVirtual/ConsultaPublicoHVUC/ConsultaPublicoHVUC.do)
+
+- [x] [SIBBr](https://www.sibbr.gov.br/) 
+
+Accessed 11 October 2022
+
+[PPBio](https://collectory.sibbr.gov.br/collectory/public/show/dp32?lang=pt_BR), [PELD](https://collectory.sibbr.gov.br/collectory/public/show/dp30?lang=pt_BR), [PELD - HCES](https://collectory.sibbr.gov.br/collectory/public/show/dr487?lang=pt_BR), [PELD - AGCV](https://collectory.sibbr.gov.br/collectory/public/show/dr504?lang=pt_BR), [PELD - PNCA](https://collectory.sibbr.gov.br/collectory/public/show/dr479?lang=pt_BR), [PELD - ELPA](https://collectory.sibbr.gov.br/collectory/public/show/dr505?lang=pt_BR), [PELD - ELPA](https://collectory.sibbr.gov.br/collectory/public/show/dr506?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr611?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr609?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr610?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr607?lang=pt_BR), [PELD - RLaC](https://collectory.sibbr.gov.br/collectory/public/show/dr608?lang=pt_BR)
+
+- [x] speciesLink 
+PPBio and PELD data acessed and dowloaded at 12 Octuber 2022 [search based on "PPBio" and PELD](https://specieslink.net/search/)
+
+
+- [ ] [Specify](https://www.specifysoftware.org/)
+
+
 ## Data Cleaning and Filters
+
+- [x] DataONE- data extraction from xml files 
+- [ ] Merge and standardize files from different sources... in progress
+
 
 ## Analysis
 
