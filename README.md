@@ -30,11 +30,6 @@ Accessed aqnd dowloaded 17 October 2022
 
 - [ ] [iNatarulaits](https://www.inaturalist.org/)
 
-Accessed aqnd dowloaded 17 October 2022
-
-3 datasets for PPBIO 
-3 datasets for PELD
-
 - [ ] [JABOT](http://rb.jbrj.gov.br/v2/consulta.php)
 
 - [ ] [REFLORA](https://reflora.jbrj.gov.br/reflora/herbarioVirtual/ConsultaPublicoHVUC/ConsultaPublicoHVUC.do)
