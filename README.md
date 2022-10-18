@@ -2,20 +2,18 @@
 
 ![ alt text for screen readers](https://github.com/PPBio/PPBio_metadata/blob/master/doc/img/PPBio_PELD%20data.png "Text to show on mouseover")
 
-Fig.1. Worl (https://www.figma.com/file/lc17JYGhJAsKvktgFdQ0gx/PPBio_PELD-data?node-id=0%3A1)
+Fig.1. [Workflow draft](https://www.figma.com/file/lc17JYGhJAsKvktgFdQ0gx/PPBio_PELD-data?node-id=0%3A1)
 
 ## Data Search
 
 #### DataOne
 
-This directory has two main subdirectories ppbio and peld. Both including R scripts for metadata files compilation and analysis. 
-
-The metadata files are stored in the below links and downloaded to a directory named "data-raw" for a local machine. This directory is not hosted on Github because has many XML files making it too large and not suitable to host here. However, for the reproducibility purposes of analysis and scripts, you can use the below links to download the xmls metadata files and create the "data-raw" directory to put those files. But pay attention to other subdirectories in data-raw. If you want to run the code without changes by yourself, create the same path and directories of the scripts. 
+The metadata files are stored in the below links and downloaded to a directory named "data-raw" for a local machine. This directory is not hosted on Github because has many XML files making it too large and not suitable to host here. However, for the reproducibility purposes of analysis and scripts, you can use the below links to download the xmls metadata files and create the "data-raw" directory to put those files. But pay attention to other subdirectories in data-raw. If you want to run the code without any changes, create the same path and directories of the scripts. 
 
 
 PPBio files- The [data from Metacat 02062022](https://onedrive.live.com/?authkey=%21ALdWS8Bdj1fu3nc&id=C8DF5FA20BD04A99%2175350&cid=C8DF5FA20BD04A99) stored some PPBio data.
 
-PELD files- The [documents from metacat 02062022](https://onedrive.live.com/?authkey=%21ALdWS8Bdj1fu3nc&id=C8DF5FA20BD04A99%2173004&cid=C8DF5FA20BD04A99) stores some metadata of PPBio of above link
+PELD files- The [documents from metacat 02062022](https://onedrive.live.com/?authkey=%21ALdWS8Bdj1fu3nc&id=C8DF5FA20BD04A99%2173004&cid=C8DF5FA20BD04A99) stores some metadata of PELD.
 
 [Peld Metacat](https://onedrive.live.com/?authkey=%21ALdWS8Bdj1fu3nc&id=C8DF5FA20BD04A99%2157919&cid=C8DF5FA20BD04A99) stores metadata and data of PELD 
 
@@ -28,7 +26,7 @@ Accessed 11 October 2022
 
 
 #### speciesLink 
-PPBio and PELD data acessed and dowloaded at 12 Octuber 2022 [search based on "PPBio"](https://specieslink.net/search/)
+PPBio and PELD data acessed and dowloaded at 12 Octuber 2022 [search based on "PPBio" and PELD](https://specieslink.net/search/)
 
 #### GBIF
 
@@ -41,9 +39,50 @@ Accessed aqnd dowloaded 17 October 2022
 
 ## Analysis
 
-<img align="left" width="400" height="400" src="https://github.com/PPBio/PPBio_metadata/blob/master/doc/img/test_1.png"> 
+<img align="left" width="500" height="400" src="https://github.com/PPBio/PPBio_metadata/blob/master/doc/img/test_1.png"> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-Fig.2 
+
+Fig.2 Text Minig of titles. Word frequency using random threshold (n > 51 <100). 
+
+
+<img align="left" width="500" height="400" src="https://github.com/PPBio/PPBio_metadata/blob/master/doc/img/test_2.png"> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+Fig3. Text Minig of titles. Word frequency using random threshold (n > 50). 
+
 
 
 
