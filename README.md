@@ -39,7 +39,7 @@ Accessed aqnd dowloaded 17 October 2022
 
 ## Analysis
 
-Some test based on text mining of "Titles" 
+Some tests for DataOne files based on text mining of "Title" 
 
 <img align="left" width="500" height="400" src="https://github.com/PPBio/PPBio_metadata/blob/master/doc/img/test_1.png"> 
 <br>
