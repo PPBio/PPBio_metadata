@@ -88,7 +88,7 @@ graph_names  = ppbio |>
   anti_join(stop_words, by = c("title2" = "word")) |> 
   anti_join(stopwords_pt_final, by = c("title2" = "word")) |> 
   count(title2, sort = TRUE) |> 
-  filter(n < 50) |> 
+  filter(n > 50) |> 
   with(wordcloud(title2, n, 
                  colors = brewer.pal(12, "Set1"),
                  max.words = 100)) 
