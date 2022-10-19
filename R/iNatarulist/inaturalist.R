@@ -1,4 +1,9 @@
-#### Get data from Inatarulist
+########################################################################
+## Este scritp baixa dos dados refernte ao PPBio da base Inaturalist
+## Versão | Version  R 4.2.1
+## Author : Tainá Rocha
+## Dowload data : 19 October 2022
+########################################################################
 
 library(rinat)
 library(readr)
