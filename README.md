@@ -28,7 +28,7 @@ Accessed aqnd dowloaded 17 October 2022
 3 datasets for PPBIO 
 3 datasets for PELD
 
-- [ ] [iNatarulaits](https://www.inaturalist.org/)
+- [X] [iNatarulaits](https://www.inaturalist.org/)
 
 - [ ] [JABOT](http://rb.jbrj.gov.br/v2/consulta.php)
 
@@ -42,9 +42,6 @@ Accessed 11 October 2022
 
 - [x] speciesLink 
 PPBio and PELD data acessed and dowloaded at 12 Octuber 2022 [search based on "PPBio" and PELD](https://specieslink.net/search/)
-
-
-- [ ] [Specify](https://www.specifysoftware.org/)
 
 
 ## Data Cleaning and Filters
