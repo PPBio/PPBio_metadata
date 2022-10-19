@@ -1,0 +1,15 @@
+#### Get data from Inatarulist
+
+library(rinat)
+library(readr)
+
+ppbio_inat = rinat::get_inat_obs(query = "PPBio")
+
+readr::write_csv(ppbio_inat, "data-raw/iNaturalist/ppbio/ppbio_inat.csv")
+
+
+peld_inat = rinat::get_inat_obs(query = "PELD")
+
+
+readr::write_csv(peld_inat, "data-raw/iNaturalist/peld/peld_inat.csv")
+
