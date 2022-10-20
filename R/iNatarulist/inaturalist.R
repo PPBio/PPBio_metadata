@@ -1,5 +1,6 @@
 ########################################################################
-## Este scritp baixa dos dados refernte ao PPBio da base Inaturalist
+## Este scritp baixa dos dados referent ao PPBio da base Inaturalist |
+## Code to download PPBIO data from iNaturalist
 ## Versão | Version  R 4.2.1
 ## Author : Tainá Rocha
 ## Dowload data : 19 October 2022
