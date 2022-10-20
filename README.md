@@ -6,6 +6,9 @@ Fig.1. [Workflow draft](https://www.figma.com/file/lc17JYGhJAsKvktgFdQ0gx/PPBio_
 
 ## Data Search
 
+Keywords used: "PPBio"", "Programa de Pesquisa em Biodiversidade", "The Program for Biodiversity Research" and "Brazilian Biodiversity Research Programme"
+
+
 - [x] DataOne
 
 The metadata files are stored in the below links and downloaded to a directory named "data-raw" for a local machine. This directory is not hosted on Github because has many XML files making it too large and not suitable to host here. However, for the reproducibility purposes of analysis and scripts, you can use the below links to download the xmls metadata files and create the "data-raw" directory to put those files. But pay attention to other subdirectories in data-raw. If you want to run the code without any changes, create the same path and directories of the scripts. 
@@ -30,7 +33,9 @@ Accessed aqnd dowloaded 17 October 2022
 
 - [X] [iNatarulaits](https://www.inaturalist.org/)
 
-- [ ] [JABOT](https://ipt.jbrj.gov.br/jabot/resource?r=rffp&request_locale=pt#anchor-description) - RFFP - Herbário da Faculdade de Formação de Professores da Universidade do Estado do Rio de Janeiro. Jabot - Banco de Dados da Flora Brasileira. Acessesd and downloaded 20 octuber 2022
+- [X] [JABOT](https://ipt.jbrj.gov.br/jabot/resource?r=rffp&request_locale=pt#anchor-description) - RFFP - Herbário da Faculdade de Formação de Professores da Universidade do Estado do Rio de Janeiro. Jabot - Banco de Dados da Flora Brasileira. Acessesd and downloaded 20 October 2022
+
+- [X] [MPEG, Herbário virtual](http://colecoesbio.museu-goeldi.br/herbario.html). Accessed/ downloaded 20 October 2022. 
 
 - [ ] [REFLORA](https://reflora.jbrj.gov.br/reflora/herbarioVirtual/ConsultaPublicoHVUC/ConsultaPublicoHVUC.do)
 
