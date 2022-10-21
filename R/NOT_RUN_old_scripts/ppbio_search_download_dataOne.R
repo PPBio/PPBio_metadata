@@ -13,7 +13,7 @@ d1c = getMNode(cn, 'urn:node:PPBIO')
 queryParams = list(q="ppbio", fl="id,title,abstract,author,beginDate, endDate, attribute, attributeName", rows='2000') 
 result = query(d1c, solrQuery=queryParams, as="data.frame", parse=FALSE)
 
-write_csv(result, "data/ppbio/ppbio_dataone.csv") # Need more cleanning 
+write_csv(result, "data-raw/dataOne/ppbio_raw/ppbio_dataone_Rpckg.csv") # Need more cleanning 
 
 result[1, c("id", "title")]
 

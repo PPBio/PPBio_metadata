@@ -16,7 +16,7 @@ library(tm)
 
 ## Lendo a planilha 
 
-ppbio = readr::read_csv("data/ppbio/1_ppbio_datasets_node.csv")
+ppbio = readr::read_csv("data/DataOne/ppbio/1_ppbio_datasets_node.csv")
 
 
 ## Primeiro é preciso executar o script stop_words

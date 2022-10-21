@@ -14,7 +14,7 @@ library(wordcloud)
 
 ## Lendo a planilha 
 
-peld = readr::read_csv("data/peld/1_peld_datasets_node.csv")
+peld = readr::read_csv("data/DataOne/peld/1_peld_datasets_node.csv")
 
 
 ## Primeiro é preciso executar o script stop_words
