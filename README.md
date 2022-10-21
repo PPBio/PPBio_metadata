@@ -4,7 +4,9 @@
 
 Fig.1. [Workflow draft](https://www.figma.com/file/lc17JYGhJAsKvktgFdQ0gx/PPBio_PELD-data?node-id=0%3A1). Feel free to make suggestions and changes.
 
-## Data Search
+## Metadata and data search
+
+[Metadata table](https://mail.google.com/mail/u/0/?ogbl#inbox/FMfcgzGqRGVKGmwLlQvQdtnbWzbjPsvf?projector=1&messagePartId=0.1)
 
 Keywords used: "PPBio"", "Programa de Pesquisa em Biodiversidade", "The Program for Biodiversity Research", "Brazilian Biodiversity Research Programme", "PEDL", "Long-Term Ecological Research Program- PELD"
 
