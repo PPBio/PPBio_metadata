@@ -17,7 +17,7 @@ library(tibble)
 splinkppbio = readr::read_delim("data-raw/speciesLink/PPBIo/20221012162526-0011185.txt")
 
 
-## Pipeline 1 
+## Pipeline PPBio 
 
 PPBIo = rep("PPBio", time = 14299)
 splppbio = rep("speciesLink", time = 14299)
@@ -58,7 +58,7 @@ slppbio = splinkppbio |>
 splinkpeld = readr::read_delim("data-raw/speciesLink/PELD/20221012163802-0000744.txt")
 
 
-## Pipeline 1 
+## Pipeline PELD 
 
 PELD = rep("PELD", time = 1086 )
 splpeld = rep("speciesLink", time = 1086 )
@@ -94,9 +94,12 @@ slpeld = splinkpeld |>
 
 ################################################# Bind
 
-version_1 = readr::read_csv("data/Version_1.csv")
 
-version_1_merged_speciesLink = do.call("rbind", list(version_1, slppbio, slpeld))
+splink_bind = bind_rows(list(slpeld, slppbio)) 
+
+write_csv(splink_bind, "data/speciesLink/splink_bind.csv")
+
+
 
 
   

@@ -1,5 +1,5 @@
 ########################################################################
-## Este scritp baixa dos dados referent ao PPBio da base Inaturalist |
+## Este scritp baixa dos dados referentes ao PELD e PPBio  da base Inaturalist |
 ## Code to download PPBIO data from iNaturalist
 ## Versão | Version  R 4.2.1
 ## Author : Tainá Rocha
