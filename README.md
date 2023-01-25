@@ -39,7 +39,7 @@ Accessed aqnd dowloaded 17 October 2022
 
 - [X] [MPEG, Herbário virtual](http://colecoesbio.museu-goeldi.br/herbario.html). Accessed/ downloaded 20 October 2022. 
 
-- [ ] [MPEG, Coleções Zoológicas](https://www.museu-goeldi.br/assuntos/colecoes/biologicas/colecoes-de-zoologica). Accessed/ downloaded 20 October 2022. in progress
+- [X] [MPEG, Coleções Zoológicas](https://www.museu-goeldi.br/assuntos/colecoes/biologicas/colecoes-de-zoologica). Accessed/ downloaded 20 October 2022. in progress
 
 - [X] [REFLORA](https://reflora.jbrj.gov.br/reflora/herbarioVirtual/ConsultaPublicoHVUC/ConsultaPublicoHVUC.do). Acessed 25 January 2023
 
