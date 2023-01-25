@@ -56,7 +56,7 @@ PPBio and PELD data acessed and dowloaded at 12 Octuber 2022 [search based on "P
 ## Data Cleaning and Filters
 
 - [x] DataONE- data extraction from xml files 
-- [ ] Merge and standardize files from different sources... in progress
+- [X] Merge and standardize files from different sources... in progress
 
 
 ## Analysis
