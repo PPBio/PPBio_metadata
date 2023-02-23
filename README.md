@@ -22,7 +22,7 @@ PELD files- The [documents from metacat 02062022](https://onedrive.live.com/?aut
 
 [Peld Metacat](https://onedrive.live.com/?authkey=%21ALdWS8Bdj1fu3nc&id=C8DF5FA20BD04A99%2157919&cid=C8DF5FA20BD04A99) stores metadata and data of PELD 
 
-- [ ] [ebird](https://ebird.org/home)
+- [X] [ebird](https://ebird.org/home) - Acessed 25 January 2023
 
 - [ ] [ForestPlot.NET](https://forestplots.net/)
 
@@ -39,9 +39,9 @@ Accessed aqnd dowloaded 17 October 2022
 
 - [X] [MPEG, Herbário virtual](http://colecoesbio.museu-goeldi.br/herbario.html). Accessed/ downloaded 20 October 2022. 
 
-- [ ] [MPEG, Coleções Zoológicas](https://www.museu-goeldi.br/assuntos/colecoes/biologicas/colecoes-de-zoologica). Accessed/ downloaded 20 October 2022. in progress
+- [X] [MPEG, Coleções Zoológicas](https://www.museu-goeldi.br/assuntos/colecoes/biologicas/colecoes-de-zoologica). Accessed/ downloaded 20 October 2022. in progress
 
-- [ ] [REFLORA](https://reflora.jbrj.gov.br/reflora/herbarioVirtual/ConsultaPublicoHVUC/ConsultaPublicoHVUC.do)
+- [X] [REFLORA](https://reflora.jbrj.gov.br/reflora/herbarioVirtual/ConsultaPublicoHVUC/ConsultaPublicoHVUC.do). Acessed 25 January 2023
 
 - [x] [SIBBr](https://www.sibbr.gov.br/) 
 
@@ -56,7 +56,7 @@ PPBio and PELD data acessed and dowloaded at 12 Octuber 2022 [search based on "P
 ## Data Cleaning and Filters
 
 - [x] DataONE- data extraction from xml files 
-- [ ] Merge and standardize files from different sources... in progress
+- [X] Merge and standardize files from different sources... in progress
 
 
 ## Analysis
