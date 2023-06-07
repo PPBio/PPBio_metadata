@@ -15,6 +15,11 @@ gbif_peld_2 = data.table::fread("data-raw/gbif/PELD/Datasets/0098781-22083108123
 
 gbif_peld_3 = data.table::fread("data-raw/gbif/PELD/Datasets/0098793-220831081235567.csv")
 
+
+gbif_peld_bind = dplyr::bind_rows(list(gbif_peld_1, gbif_peld_2, gbif_peld_3)) 
+
+readr::write_csv(gbif_peld_bind, "data/gbif/peldBind.csv")
+
 ## Pipeline PELD 
 
 ## gbif_peld_1
@@ -123,8 +128,12 @@ gbif_ppbio_1 = data.table::fread("data-raw/gbif/ppbio/Datasets/0098589-220831081
 
 gbif_ppbio_2 = data.table::fread("data-raw/gbif/ppbio/Datasets/0098608-220831081235567.csv")
 
-gbif_ppbio_3 = data.table::fread("data-raw/gbif/ppbio/Datasets/0098611-220831081235567.csv")
+gbif_ppbio_3 = data.table::fread("data-raw/gbif/ppbio/Datasets/0098611-220831081235567.csv") |> 
+  dplyr::mutate(occurrenceID = as.character(occurrenceID))
 
+BindPPBIO = dplyr::bind_rows(list(gbif_ppbio_1, gbif_ppbio_2, gbif_ppbio_3)) 
+
+readr::write_csv(BindPPBIO, "data/gbif/ppbioBind.csv")
 
 ## Pipeline PPBio 
 
