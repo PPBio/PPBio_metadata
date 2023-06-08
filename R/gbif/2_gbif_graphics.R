@@ -60,3 +60,8 @@ j + geom_bar( width = 0.5) +
         panel.grid.minor = element_blank(),
         panel.grid = element_blank()
   )
+
+
+## Species
+
+
