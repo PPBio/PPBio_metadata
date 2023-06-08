@@ -55,32 +55,6 @@ tm_2 = ppbio |>
   labs(y = NULL)
 
 
-tm_3 = ppbio |>
-  select(title) |> 
-  unnest_tokens(title2, title) |> #name of colunm, in this case text column
-  # filter(!grepl("[[:digit:]]", text)) |> 
-  anti_join(stop_words, by = c("title2" = "word")) |> 
-  anti_join(stopwords_pt_final, by = c("title2" = "word")) |> 
-  count(title2, sort = TRUE) |> 
-  filter(n > 51, n < 100) |> 
-  mutate(title2 = reorder(title2, n)) |> 
-  ggplot(aes(n, title2)) +
-  geom_col() +
-  labs(y = NULL)
-
-tm4 = ppbio |>
-  select(abstract) |> 
-  unnest_tokens(abstract2, abstract) |> #name of colunm, in this case text column
-  # filter(!grepl("[[:digit:]]", text)) |> 
-  anti_join(stop_words, by = c("abstract2" = "word")) |> 
-  anti_join(stopwords_pt_final, by = c("abstract2" = "word")) |> 
-  count(abstract2, sort = TRUE) |> 
-  filter(n > 10, n < 12) |> 
-  mutate(abstract2 = reorder(abstract2, n)) |> 
-  ggplot(aes(n, abstract2)) +
-  geom_col() +
-  labs(y = NULL)
-
 graph_names  = ppbio |>
   select(title) |> 
   unnest_tokens(title2, title) |> #name of colunm, in this case text column
@@ -111,3 +85,4 @@ ppbio_2 = as_tibble(ppbio) %>%
 rm(keywords)
 
 
+### GBIF 

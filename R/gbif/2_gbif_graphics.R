@@ -135,8 +135,31 @@ ggplot(gbif_ppbio_t3, aes(x = family, y = n)) +
 ## Genus 
 
 
-## Country Code
+## Locality 
+## State Provincia Bar graphic
+gbif_ppbio |>
+  filter(year > 2004) |> 
+  filter(countryCode == "BR") |> 
+  group_by(stateProvince) |>
+  count() |>
+  na.omit()  
+  kable()
 
-## State Provincia
-
-## Instution
+## Instution  Bar graphic
+gbif_ppbio |>
+  filter(year > 2004) |> 
+  group_by(institutionCode) |>
+  count() |>
+  na.omit()  
+  kable()
+  
+  
+## Indentication cloud names
+gbif_ppbio |>
+  filter(year > 2004) |> 
+  filter(!grepl("^-", identifiedBy)) |> 
+  filter(!grepl("^[0-9]+", identifiedBy)) |>
+  group_by(identifiedBy) |>
+  count() |>
+  na.omit() |>  
+  kable()
