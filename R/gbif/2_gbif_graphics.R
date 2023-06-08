@@ -36,23 +36,28 @@ h + geom_bar( width = 0.5) +
         panel.grid = element_blank()
         )
 
-## Family
+## Family t1
 
-gbif_ppbio |>
+gbif_ppbio_t1 = gbif_ppbio |>
   filter(!grepl('incertae sedis', family)) |>
   group_by(family) |>
   count() |>
-  kable()
+  filter(n > 29 & n < 101) #|> 
+  #arrange(desc(n)) |>
+  #kable() 
 
 
-i = gbif_ppbio |>
-  filter(!grepl('incertae sedis', family))  
+## Bar plot
+# Using ggplot2 package
 
-j = ggplot(i, aes(family))
-j + geom_bar( width = 0.5) +
-  scale_y_sqrt() +
-  xlab(" ") + ylab("N") +
+gbif_ppbio_t2$family = factor(gbif_ppbio_t1$family, levels = gbif_ppbio_t1$family[order(gbif_ppbio_t1$n, decreasing = TRUE)])
+
+ggplot(gbif_ppbio_t1, aes(x = family, y = n)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(x = "Family", y = "Count",
+       title = "Distribution of Family Taxa in Plantae Kingdom") +
   theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   theme(text = element_text(size=15),
         plot.background = element_blank(),
         panel.grid.major = element_blank(),
@@ -62,6 +67,76 @@ j + geom_bar( width = 0.5) +
   )
 
 
-## Species
+## Family t2
+ 
+
+gbif_ppbio_t2 = gbif_ppbio |>
+  filter(!grepl('incertae sedis', family)) |>
+  group_by(family) |>
+  count() |>
+  filter(n > 100 & n < 501) |>
+  na.omit()
+#arrange(desc(n)) |>
+#kable() 
 
 
+## Bar plot
+# Using ggplot2 package
+
+gbif_ppbio_t2$family = factor(gbif_ppbio_t2$family, levels = gbif_ppbio_t2$family[order(gbif_ppbio_t2$n, decreasing = TRUE)])
+
+ggplot(gbif_ppbio_t2, aes(x = family, y = n)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(x = "Family", y = "Count",
+       title = "Distribution of Family Taxa in Plantae Kingdom") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  theme(text = element_text(size=15),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.ontop = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.grid = element_blank()
+  )
+
+
+## Family t3
+
+
+gbif_ppbio_t3 = gbif_ppbio |>
+  filter(!grepl('incertae sedis', family)) |>
+  group_by(family) |>
+  count() |>
+  filter(n > 500 & n < 4000) |>
+  na.omit()
+#arrange(desc(n)) |>
+#kable() 
+
+
+## Bar plot
+# Using ggplot2 package
+
+gbif_ppbio_t3$family = factor(gbif_ppbio_t3$family, levels = gbif_ppbio_t3$family[order(gbif_ppbio_t3$n, decreasing = TRUE)])
+
+ggplot(gbif_ppbio_t3, aes(x = family, y = n)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(x = "Family", y = "Count",
+       title = "Distribution of Family Taxa in Plantae Kingdom") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  theme(text = element_text(size=15),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.ontop = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.grid = element_blank()
+  )
+
+## Genus 
+
+
+## Country Code
+
+## State Provincia
+
+## Instution
