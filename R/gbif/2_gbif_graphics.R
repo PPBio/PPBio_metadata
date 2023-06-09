@@ -1,7 +1,8 @@
 ## Este scritp gera gráficos para os dados do gbif
 ## Versão | Version  R 4.3
 ## Author : Tainá Rocha
-## Dowload data : 07 June 2023
+## Data : 07 June 2023
+## Last update: 09 June 2023
 
 
 library(dplyr)
