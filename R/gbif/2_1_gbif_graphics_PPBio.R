@@ -18,12 +18,14 @@ gbif_ppbio = readr::read_csv("data/gbif/ppbioBind.csv")
 ## Kingdom
 
 gbif_ppbio |>
+  filter(year > 2004) |> 
   filter(!grepl('incertae sedis', kingdom)) |>
   group_by(kingdom) |>
   count() |>
   kable()
 
 g = gbif_ppbio |>
+  filter(year > 2004) |> 
   filter(!grepl('incertae sedis', kingdom)) |>
   group_by(kingdom) |>
   count() #|>
@@ -48,6 +50,7 @@ h +  geom_bar(stat = "identity", fill ="gray", width = 0.5) +
 ## Family t1
 
 gbif_ppbio_f1 = gbif_ppbio |>
+  filter(year > 2004) |> 
   filter(!grepl('incertae sedis', family)) |>
   group_by(family) |>
   count() |>
@@ -75,6 +78,7 @@ ggplot(gbif_ppbio_f1, aes(x = family, y = n)) +
 
 ## Family t2
 f2_gbif_ppbio = gbif_ppbio |>
+  filter(year > 2004) |> 
   filter(!grepl('incertae sedis', family)) |>
   group_by(family) |>
   count() |>
@@ -103,17 +107,20 @@ ggplot(f2_gbif_ppbio, aes(x = family, y = n)) +
 
 ## Family t3
 f3_gbif_ppbio = gbif_ppbio |>
+  filter(year > 2004) |>
   filter(!grepl('incertae sedis', family)) |>
   group_by(family) |>
   count() |>
-  filter(n > 29 & n < 101) #|> 
+  filter(n > 29 & n < 101) |>
+  na.omit()
 
-f3_gbif_ppbio$family = factor(gbif_ppbio_t1$family, levels = f3_gbif_ppbio$family[order(gbif_ppbio_t1$n, decreasing = TRUE)])
+f3_gbif_ppbio$family = factor(f3_gbif_ppbio$family, levels = f3_gbif_ppbio$family[order(f3_gbif_ppbio$n, decreasing = TRUE)])
 
 ggplot(f3_gbif_ppbio, aes(x = family, y = n)) +
-  geom_bar(stat = "identity", fill = "steelblue") +
-  labs(x = "Family", y = "Count",
-       title = "Distribution of Family Taxa in Plantae Kingdom") +
+  geom_bar(stat = "identity", fill ="gray") +
+  geom_text(aes(label = n), vjust = -0.5, size = 3) +  # Add text labels with n values
+  labs(x = " ", y = "N",
+       title = "Families") +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   theme(text = element_text(size=15),
@@ -125,6 +132,7 @@ ggplot(f3_gbif_ppbio, aes(x = family, y = n)) +
   )
 
 
+####
 f3_gbif_ppbio$family = factor(f3_gbif_ppbio$family, levels = f3_gbif_ppbio$family[order(f3_gbif_ppbio$n, decreasing = TRUE)])
 
 ggplot(f3_gbif_ppbio, aes(x = family, y = n)) +
