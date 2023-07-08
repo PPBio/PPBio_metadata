@@ -32,17 +32,15 @@ inat_ppbio |>
   count() |>
   kable()
 
-inat_map = inat_ppbio |>
-  mutate(across('iconic_taxon_name', str_replace, 'Amphibia', 'Vertebrate'))  |> 
-  mutate(across('iconic_taxon_name', str_replace, 'Aves', 'Vertebrate'))  |>
-  mutate(across('iconic_taxon_name', str_replace, 'Mammalia', 'Vertebrate'))  |>
-  mutate(across('iconic_taxon_name', str_replace, 'Reptilia', 'Vertebrate'))  |>
-  mutate(across('iconic_taxon_name', str_replace, 'Arachnida', 'Invertebrate')) |>
-  mutate(across('iconic_taxon_name', str_replace, 'Mollusca', 'Invertebrate')) |>
-  mutate(across('iconic_taxon_name', str_replace, 'Insecta', 'Invertebrate')) |>
-  mutate(across('iconic_taxon_name', str_replace, 'Fungi', 'Invertebrate'))
+inat_ppbio  |> 
+  group_by(iconic_taxon_name) |>
+  count() |>
+  kable()
 
-readr::write_csv(inat_map, "data/inat_PPBIO_map.csv")
+  
+#readr::write_csv(inat_map, "data/inat_PPBIO_map.csv")
+
+
 
 
 ## Indentication cloud names

@@ -2,54 +2,49 @@
 ## Versão | Version  R 4.3
 ## Author : Tainá Rocha
 ## Data : 07 June 2023
-## Last update: 09 June 2023
+## Last update: 08 July 2023
 
 
 library(dplyr)
+library(geobr)
 library(ggplot2)
 library(knitr)
 library(readr)
+library(sf)
 library(stringr)
 library(wordcloud)
 
 
-gbif_peld = readr::read_csv("data/gbif/peldBind.csv")
+inat_peld = readr::read_csv("data-raw/iNaturalist/peld/peld_inat.csv")
 
 ## Kingdom
 
-
-gbif_peld |>
-  filter(year > 1997) |> 
-  filter(!grepl('incertae sedis', kingdom)) |>
-  group_by(kingdom) |>
+inat_peld |>
+  mutate(across('iconic_taxon_name', str_replace, 'Amphibia', 'Vertebrate'))  |> 
+  mutate(across('iconic_taxon_name', str_replace, 'Aves', 'Vertebrate'))  |>
+  mutate(across('iconic_taxon_name', str_replace, 'Mammalia', 'Vertebrate'))  |>
+  mutate(across('iconic_taxon_name', str_replace, 'Reptilia', 'Vertebrate'))  |>
+  mutate(across('iconic_taxon_name', str_replace, 'Arachnida', 'Invertebrate')) |>
+  mutate(across('iconic_taxon_name', str_replace, 'Mollusca', 'Invertebrate')) |>
+  mutate(across('iconic_taxon_name', str_replace, 'Insecta', 'Invertebrate')) |>
+  mutate(across('iconic_taxon_name', str_replace, 'Fungi', 'Invertebrate')) |>
+  group_by(iconic_taxon_name) |>
   count() |>
   kable()
 
-## Phylum
-gbif_peld |>
-  filter(year > 1997) |> 
-  filter(!grepl('incertae sedis', kingdom)) |>
-  group_by(phylum) |>
+inat_peld |> 
+  group_by(iconic_taxon_name) |>
   count() |>
   kable()
 
 
-gbpeld = gbif_peld |>
-  filter(year > 1997) |> 
-  mutate(Map = phylum) |>
-  filter(!grepl('incertae sedis', kingdom)) |>
-  mutate(across('Map', str_replace, 'Chlorophyta', 'Invertebrate'))  |> 
-  mutate(across('Map', str_replace, 'Chordata', 'Vertebrate'))  |> 
-  mutate(across('Map', str_replace, 'Cnidaria', 'Invertebrate'))  |> 
-  mutate(across('Map', str_replace, 'Cyanobacteria', 'Invertebrate'))  |> 
-  mutate(across('Map', str_replace, 'Tracheophyta', 'Plantae')) 
+#readr::write_csv(inat_map, "data/inat_PPBIO_map.csv")
 
-readr::write_csv(gbpeld, "data/gbif_PELD_map.csv")
 
 
 ## State
 
-gbpeld|>
+inatpeld|>
   filter(year > 1997) |> 
   filter(!grepl('incertae sedis', kingdom)) |>
   group_by(stateProvince) |>
