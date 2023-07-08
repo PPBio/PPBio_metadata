@@ -29,6 +29,36 @@ gbif_ppbio |>
   count() |>
   kable()
 
+
+## Phylum
+gbif_ppbio|>
+  filter(year > 2004) |> 
+  filter(!grepl('incertae sedis', kingdom)) |>
+  group_by(phylum) |>
+  count() |>
+  kable()
+
+
+## Class
+
+gbif_ppbio|>
+  filter(year > 2004) |> 
+  filter(!grepl('incertae sedis', kingdom)) |>
+  group_by(class) |>
+  count() |>
+  kable()
+  
+## State
+
+gbif_ppbio|>
+  filter(year > 2004) |> 
+  filter(!grepl('incertae sedis', kingdom)) |>
+  group_by(stateProvince) |>
+  count() |>
+  arrange(desc(n)) |> 
+  kable()
+
+
 t = gbif_ppbio |>
   filter(year > 2004) |> 
   filter(!grepl('incertae sedis', kingdom)) |>
