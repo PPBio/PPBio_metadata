@@ -17,6 +17,7 @@ library(wordcloud)
 
 gbif_ppbio = readr::read_csv("data/gbif/ppbioBind.csv")
 
+## Kingdom
 
 gbif_ppbio |>
   filter(year > 2004) |> 
@@ -28,50 +29,6 @@ gbif_ppbio |>
   count() |>
   kable()
 
-raw = gbif_ppbio |>
-  filter(year > 2004) |> 
-  filter(!grepl('incertae sedis', kingdom)) |>
-  filter_at(.vars = vars(decimalLongitude, decimalLatitude), .vars_predicate = any_vars(!is.na(.))) |> 
-  mutate(across('kingdom', str_replace, 'Animalia', 'Vertebrate'))  |> 
-  mutate(across('kingdom', str_replace, 'Chromista', 'Microorganism')) |>
-  mutate(across('kingdom', str_replace, 'Fungi', 'Microorganism')) |>
-  mutate(across('kingdom', str_replace, "-135.78306", "-13.578306"))|>
-  group_by(kingdom) 
-
-## Kingdom
-
-kin = gbif_ppbio |> 
-  filter(!grepl('incertae sedis', kingdom)) |> 
-  select(decimalLatitude, decimalLongitude, kingdom) |> 
-  mutate(across('kingdom', str_replace, 'Animalia', 'Vertebrate'))  |> 
-  mutate(across('kingdom', str_replace, 'Chromista', 'Microorganism')) |>
-  mutate(across('kingdom', str_replace, 'Fungi', 'Microorganism')) |>
-  mutate(across('kingdom', str_replace, "-135.78306", "-13.578306"))|>
-  filter_at(.vars = vars(decimalLongitude, decimalLatitude), .vars_predicate = any_vars(!is.na(.))) |> 
-  st_as_sf(coords = c("decimalLongitude", "decimalLatitude")) 
-
-kin[kin == "-135.78306"] <- "-13.578306"
-
-st_crs(kin) = 4674
-
-
-# read Muni using geobr
-
-estados = geobr::read_state(code_state = "all", year = 2020)
-
-
-# Create facet wrapped maps based on kingdom
-
-ggplot(data = estados) +
-  geom_sf() +
-  geom_sf(data = kin) +
-  facet_wrap(~ kingdom, nrow = 2) +
-  theme_minimal()
-
-############################################################################################################
-
-
-
 t = gbif_ppbio |>
   filter(year > 2004) |> 
   filter(!grepl('incertae sedis', kingdom)) |>
@@ -80,14 +37,25 @@ t = gbif_ppbio |>
   mutate(across('kingdom', str_replace, 'Fungi', 'Microorganism')) |>
   rename("name_state" = stateProvince)
 
+#readr::write_csv(t, "data/gbif_PPBIO_map.csv")
+
+# read Muni using geobr
+
+muni = geobr::read_state(code_state = "all", year = 2020)
 
 
+# Join
 
+jopinState = left_join(t, muni, by = "name_state")
+  
 
-
+#namesss = as_data_frame(colnames(jopinState))
 
 
 # Plot
+
+
+sf_obj = st_as_sf(jopinState, coords = c("decimalLongitude", "decimalLatitude"))
 
 ggplot() +
   geom_sf(data = sf_obj, aes(color = geom)) +
@@ -288,8 +256,8 @@ Inst = gbif_ppbio |>
   filter(year > 2004) |> 
   group_by(institutionCode) |>
   count() |>
-  na.omit()  
-  #kable()
+  na.omit() 
+#  kable()
  
 ggplot(Inst, aes(x = institutionCode, y = n)) +
     geom_bar(stat = "identity", fill = "grey", width = 0.25) +
